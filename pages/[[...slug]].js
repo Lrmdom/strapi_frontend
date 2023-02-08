@@ -87,7 +87,7 @@ export async function getStaticProps(context) {
   }
 
   // We have the required page data, pass it to the page component
-  const { contentSections, metadata, localizations, slug } = pageData
+  const { contentSections, metadata, localizations, slug } = pageData.data[0].attributes
 
   const pageContext = {
     locale,
