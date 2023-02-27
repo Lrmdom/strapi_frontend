@@ -7,9 +7,11 @@
     "prettier"
   ],
   "rules": {
+    "react/no-unknown-property": ['off', { ignore: ['link'] }],
     "prettier/prettier": [
       "error",
       {
+        "endOfLine":"auto",
         "printWidth": 80,
         "singleQuote": false,
         "trailingComma": "es5",

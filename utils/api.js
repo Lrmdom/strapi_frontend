@@ -99,8 +99,7 @@ export async function getPageData({ slug, locale, preview }) {
                   shareImage {
                     ...FileParts
                   }
-                  twitterCardType
-                  twitterUsername
+                 
                 }
                 contentSections {
                   __typename
@@ -253,7 +252,7 @@ export async function getPageData({ slug, locale, preview }) {
   }
 
   // Return the first item since there should only be one result per slug
-  return pagesData.data.pages
+  return pagesData.data.pages.data[0]
 }
 
 // Get site data from Strapi (metadata, navbar, footer...)
@@ -293,8 +292,7 @@ export async function getGlobalData(locale) {
                   shareImage {
                     ...FileParts
                   }
-                  twitterCardType
-                  twitterUsername
+
                 }
                 metaTitleSuffix
                 notificationBanner {
