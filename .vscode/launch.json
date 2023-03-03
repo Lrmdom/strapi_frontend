@@ -2,6 +2,13 @@
     "version": "0.2.0",
     "configurations": [
       {
+        "name": "Attach to Chrome",
+        "port": 9229,
+        "request": "attach",
+        "type": "node",
+        "skipFiles": ["<node_internals>/**"],
+      },
+      {
         "name": "Next.js: debug server-side",
         "type": "node-terminal",
         "request": "launch",
@@ -24,6 +31,8 @@
           "uriFormat": "%s",
           "action": "debugWithChrome"
         }
-      }
+      },
+      
+      
     ]
   }
