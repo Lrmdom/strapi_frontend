@@ -11,7 +11,7 @@ const Seo = ({ metadata }) => {
     <NextSeo
       title={metadata.metaTitle}
       description={metadata.metaDescription}
-      openGraph={{
+      /* openGraph={{
         // Title and description are mandatory
         title: metadata.metaTitle,
         description: metadata.metaDescription,
@@ -28,7 +28,7 @@ const Seo = ({ metadata }) => {
             }
           }),
         }),
-      }}
+      }} */
       // Only included Twitter data if we have it
       twitter={{
         ...(metadata.twitterCardType && { cardType: metadata.twitterCardType }),

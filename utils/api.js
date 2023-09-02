@@ -2,7 +2,7 @@ import qs from "qs"
 
 export function getStrapiURL(path) {
   return `${
-    process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
+    process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1357"
   }${path}`
 }
 
@@ -99,8 +99,7 @@ export async function getPageData({ slug, locale, preview }) {
                   shareImage {
                     ...FileParts
                   }
-                  twitterCardType
-                  twitterUsername
+                 
                 }
                 contentSections {
                   __typename
@@ -293,8 +292,7 @@ export async function getGlobalData(locale) {
                   shareImage {
                     ...FileParts
                   }
-                  twitterCardType
-                  twitterUsername
+
                 }
                 metaTitleSuffix
                 notificationBanner {

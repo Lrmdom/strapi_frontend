@@ -58,7 +58,6 @@ export async function getStaticPaths(context) {
 
   const paths = pages.map((page) => {
     const { slug, locale } = page.attributes
-    // Decompose the slug that was saved in Strapi
     const slugArray = !slug ? false : slug.split("/")
 
     return {
@@ -89,8 +88,7 @@ export async function getStaticProps(context) {
 
   // We have the required page data, pass it to the page component
   const { contentSections, metadata, localizations, slug } = pageData.attributes
-
-  const pageContext = {
+    const pageContext = {
     locale,
     locales,
     defaultLocale,
