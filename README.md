@@ -1,5 +1,5 @@
 # Next frontend
-
+just trie deployed master...
 This frontend relies on Next's [Static Generation](https://nextjs.org/docs/basic-features/pages) using [Strapi](https://strapi.io/) as the data source. Make sure Strapi is running in parallel when you run this app.
 
 ## Routes
