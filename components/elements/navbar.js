@@ -23,7 +23,7 @@ const Navbar = ({ navbar, pageContext }) => {
         <div className="container flex flex-row items-center justify-between">
           {/* Content aligned to the left */}
           <div className="flex flex-row items-center">
-            <Link href="/">
+            <Link legacyBehavior href="/">
               <a className="h-8 w-32">
                 <NextImage width="120" height="33" media={navbar.logo} />
               </a>
