@@ -29,7 +29,7 @@ const MyApp = ({ Component, pageProps }) => {
         titleTemplate={`%s | ${metaTitleSuffix}`}
         title="Page"
         description={metadata.metaDescription}
-        /* openGraph={{
+         openGraph={{
           images: Object.values(
             metadata.shareImage.data.attributes.formats
           ).map((image) => {
@@ -39,7 +39,7 @@ const MyApp = ({ Component, pageProps }) => {
               height: image.height,
             }
           }),
-        }} */
+        }}
         twitter={{
           cardType: metadata.twitterCardType,
           handle: metadata.twitterUsername,
