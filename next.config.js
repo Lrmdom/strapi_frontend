@@ -1,7 +1,7 @@
 module.exports = {
   i18n: {
-    locales: ['pt','en','fr','es'],
-    defaultLocale: 'pt',
+    locales: ['en','pt'],
+    defaultLocale: 'en',
   },
   /* eslint: {
     // Warning: This allows production builds to successfully complete even if

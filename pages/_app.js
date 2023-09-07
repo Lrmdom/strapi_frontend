@@ -1,7 +1,7 @@
 import App from "next/app"
 import Head from "next/head"
 import ErrorPage from "next/error"
-//import { useRouter } from "next/router"
+import { useRouter } from "next/router"
 import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
