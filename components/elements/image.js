@@ -9,6 +9,7 @@ const NextImage = ({ media, ...props }) => {
   const loader = ({ src, width }) => {
     return getStrapiMedia(src)
   }
+
   // The image has a fixed width and height
   if (props.width && props.height) {
     return (
