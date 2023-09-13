@@ -11,6 +11,7 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "@tailwindcss/typography": "^0.5.9 ",
     "classnames": "^2.3.2",
     "cookie": "^0.5.0",
