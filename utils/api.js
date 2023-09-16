@@ -231,6 +231,18 @@ export async function getPageData({ slug, locale, preview }) {
                     }
                     title
                   }
+                  ... on ComponentSectionsContactForm {
+                    id
+                    email
+                    location
+                    description
+                    submitButton {
+                      id
+                      text
+                      type
+                    }
+                    title
+                  }
                 }
               }
             }

@@ -107,9 +107,12 @@ coverage
 ############################
 .next
 .env
+.env.local
 license.txt
 exports
 *.cache
 dist
 build
 .strapi-updater.json
+yarn.lock
+package-lock.json
