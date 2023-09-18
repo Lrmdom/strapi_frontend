@@ -359,3 +359,59 @@ export async function getGlobalData(locale) {
   const global = await globalRes.json()
   return global.data.global
 }
+
+export async function getCPQData(locale){
+  const gqlEndpoint = getStrapiURL("/graphql")
+  const cpcRes = await fetch(gqlEndpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        
+        query GetCPQData($locale: I18NLocaleCode!) {
+          execlogServices(locale: $locale) {
+            data {
+              id
+              attributes {                            
+                name
+                description 
+                execlog_service_details{
+                  data{
+                    attributes{
+                      name
+                      description
+                    }
+                  }              
+                }
+                execlog_customer_needs{
+                  data{
+                    attributes{
+                      nome
+                      description
+                      execlog_ctmnddts{
+                        data{
+                          attributes{
+                            nome
+                            description
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }             
+            }
+          }
+        }      
+      `,
+      variables: {
+        locale,
+      },
+    }),
+  })
+
+  const cpcData = await cpcRes.json()
+  return cpcData.data.execlogServices.data
+}

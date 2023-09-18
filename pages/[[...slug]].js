@@ -1,5 +1,5 @@
 import ErrorPage from "next/error"
-import { getPageData, fetchAPI, getGlobalData } from "utils/api"
+import { getPageData, fetchAPI, getGlobalData,getCPQData } from "utils/api"
 import Sections from "@/components/sections"
 import Seo from "@/components/elements/seo"
 import { useRouter } from "next/router"
@@ -74,6 +74,9 @@ export async function getStaticProps(context) {
   const { params, locale, locales, defaultLocale, preview = null } = context
 
   const globalLocale = await getGlobalData(locale)
+
+  const cpqData= await getCPQData(locale);
+
   // Fetch pages. Include drafts if preview mode is on
   const pageData = await getPageData({
     slug: (!params.slug ? [""] : params.slug).join("/"),
@@ -104,6 +107,7 @@ export async function getStaticProps(context) {
       sections: contentSections,
       metadata,
       global: globalLocale.data,
+      cpqData: cpqData,
       pageContext: {
         ...pageContext,
         localizedPaths,
