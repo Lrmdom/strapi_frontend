@@ -5,6 +5,8 @@ import { useRouter } from "next/router"
 import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
+import { getCPQData } from "utils/api"
+
 import "@/styles/index.css"
 
 const MyApp = ({ Component, pageProps }) => {
@@ -29,18 +31,18 @@ const MyApp = ({ Component, pageProps }) => {
         titleTemplate={`%s | ${metaTitleSuffix}`}
         title="Page"
         description={metadata.metaDescription}
-         openGraph={{
-           //svg images dont work
+        openGraph={{
+          //svg images dont work
           images:
-          Object.values(
-            metadata.shareImage.data.attributes.formats
-          ).map((image) => {
-            return {
-              url: getStrapiMedia(image.url),
-              width: image.width,
-              height: image.height,
-            }
-          }),
+            Object.values(
+              metadata.shareImage.data.attributes.formats,
+            ).map((image) => {
+              return {
+                url: getStrapiMedia(image.url),
+                width: image.width,
+                height: image.height,
+              }
+            }),
         }}
         twitter={{
           cardType: metadata.twitterCardType,
@@ -61,11 +63,12 @@ MyApp.getInitialProps = async (appContext) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
   const globalLocale = await getGlobalData(appContext.router.locale)
-
+  const cpqData = await getCPQData(appContext.router.locale)
   return {
     ...appProps,
     pageProps: {
       global: globalLocale,
+      cpqData: cpqData,
     },
   }
 }
