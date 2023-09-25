@@ -14,7 +14,7 @@
     "prettier/prettier": [
       "error",
       {
-        "endOfLine":"off",
+        "endOfLine":"auto",
         "printWidth": 80,
         "singleQuote": false,
         "trailingComma": "es5",
