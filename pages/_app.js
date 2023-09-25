@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
-import { getCPQData } from "utils/api"
+//import { getCPQData } from "utils/api"
 
 import "@/styles/index.css"
 import Analytics from "./analytics"
@@ -21,7 +21,6 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       {/* Favicon */}
       <Head>
-        <Analytics/>
         <link
           rel="shortcut icon"
           href={getStrapiMedia(favicon.data.attributes.url)}
@@ -64,12 +63,12 @@ MyApp.getInitialProps = async (appContext) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
   const globalLocale = await getGlobalData(appContext.router.locale)
-  const cpqData = await getCPQData(appContext.router.locale)
+  //const cpqData = await getCPQData(appContext.router.locale)
   return {
     ...appProps,
     pageProps: {
       global: globalLocale,
-      cpqData: cpqData,
+      //cpqData: cpqData,
     },
   }
 }

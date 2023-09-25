@@ -75,7 +75,7 @@ export async function getStaticProps(context) {
 
   const globalLocale = await getGlobalData(locale)
 
-  const cpqData= await getCPQData(locale)
+  //const cpqData= await getCPQData(locale)
 
   // Fetch pages. Include drafts if preview mode is on
   const pageData = await getPageData({
@@ -107,7 +107,7 @@ export async function getStaticProps(context) {
       sections: contentSections,
       metadata,
       global: globalLocale.data,
-      cpqData: cpqData,
+      //cpqData: cpqData,
       pageContext: {
         ...pageContext,
         localizedPaths,
