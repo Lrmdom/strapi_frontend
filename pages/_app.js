@@ -5,6 +5,7 @@ import { useRouter } from "next/router"
 import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
+
 //import { getCPQData } from "utils/api"
 
 import "@/styles/index.css"
@@ -21,11 +22,13 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       {/* Favicon */}
       <Head>
+      <Analytics/>
         <link
           rel="shortcut icon"
           href={getStrapiMedia(favicon.data.attributes.url)}
         />
       </Head>
+
       {/* Global site metadata */}
       <DefaultSeo
         titleTemplate={`%s | ${metaTitleSuffix}`}
