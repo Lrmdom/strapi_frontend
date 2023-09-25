@@ -21,7 +21,6 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       {/* Favicon */}
       <Head>
-        <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6Q0S0C2Q7"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
