@@ -75,7 +75,7 @@ export async function getStaticProps(context) {
 
   const globalLocale = await getGlobalData(locale)
 
-  const cpqData= await getCPQData(locale);
+  const cpqData= await getCPQData(locale)
 
   // Fetch pages. Include drafts if preview mode is on
   const pageData = await getPageData({
@@ -91,7 +91,7 @@ export async function getStaticProps(context) {
 
   // We have the required page data, pass it to the page component
   const { contentSections, metadata, localizations, slug } = pageData.attributes
-    const pageContext = {
+    const pageContext= {
     locale,
     locales,
     defaultLocale,

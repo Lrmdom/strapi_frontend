@@ -7,20 +7,25 @@
     "prettier"
   ],
   "rules": {
+    "linebreak-style": 0,
     "react/no-unknown-property": [
-      "off", { "ignore": [
-        "link"
-      ] }],
-    "prettier/prettier": [
+      "off",
+      {
+        "ignore": [
+          "link"
+        ]
+      }
+    ]
+    /*"prettier/prettier": [
       "error",
       {
-        "endOfLine":"auto",
+        "endOfLine": "auto",
         "printWidth": 80,
         "singleQuote": false,
         "trailingComma": "es5",
         "semi": false,
         "tabWidth": 2
       }
-    ]
+    ]*/
   }
 }

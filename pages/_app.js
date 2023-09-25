@@ -21,14 +21,6 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       {/* Favicon */}
       <Head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6Q0S0C2Q7"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-
-          gtag('config', 'G-F6Q0S0C2Q7');
-        </script>
         <link
           rel="shortcut icon"
           href={getStrapiMedia(favicon.data.attributes.url)}
