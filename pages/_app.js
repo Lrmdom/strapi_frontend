@@ -24,7 +24,7 @@ const MyApp = ({ Component, pageProps }) => {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6Q0S0C2Q7"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag(){dataLayer.push(arguments)}
           gtag('js', new Date());
 
           gtag('config', 'G-F6Q0S0C2Q7');
