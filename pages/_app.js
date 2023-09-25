@@ -9,7 +9,6 @@ import { getGlobalData } from "utils/api"
 //import { getCPQData } from "utils/api"
 
 import "@/styles/index.css"
-import Analytics from "./analytics"
 const MyApp = ({ Component, pageProps }) => {
   // Extract the data we need
   const { global } = pageProps
