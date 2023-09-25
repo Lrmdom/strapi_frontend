@@ -22,7 +22,6 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       {/* Favicon */}
       <Head>
-      <Analytics/>
         <link
           rel="shortcut icon"
           href={getStrapiMedia(favicon.data.attributes.url)}
