@@ -8,7 +8,7 @@ import { getGlobalData } from "utils/api"
 import { getCPQData } from "utils/api"
 
 import "@/styles/index.css"
-
+import Analytics from "./analytics"
 const MyApp = ({ Component, pageProps }) => {
   // Extract the data we need
   const { global } = pageProps
@@ -21,14 +21,7 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       {/* Favicon */}
       <Head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6Q0S0C2Q7"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-
-          gtag('config', 'G-F6Q0S0C2Q7');
-        </script>
+        <Analytics/>
         <link
           rel="shortcut icon"
           href={getStrapiMedia(favicon.data.attributes.url)}
