@@ -290,6 +290,7 @@ export async function getGlobalData(locale) {
             }
           }
         }
+       
         query GetGlobal($locale: I18NLocaleCode!) {
           global(locale: $locale) {
             data {
@@ -348,7 +349,40 @@ export async function getGlobalData(locale) {
               }
             }
           }
-        }      
+          execlogServices(locale: $locale) {
+            data {
+              id
+              attributes {                            
+                name
+                description 
+                execlog_service_details{
+                  data{
+                    attributes{
+                      name
+                      description
+                    }
+                  }              
+                }
+                execlog_customer_needs{
+                  data{
+                    attributes{
+                      nome
+                      description
+                      execlog_ctmnddts{
+                        data{
+                          attributes{
+                            nome
+                            description
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }             
+            }
+          }
+        }        
       `,
       variables: {
         locale,
