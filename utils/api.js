@@ -379,6 +379,24 @@ export async function getGlobalData(locale) {
                     }
                   }
                 }
+                execlog_planners{
+                   data{
+                    attributes{
+                      name
+                      description
+                      execlog_planner_steps{
+                        data{
+                          attributes{
+                            name
+                            description
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                
+                }
               }             
             }
           }
