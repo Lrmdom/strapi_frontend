@@ -278,129 +278,111 @@ export async function getGlobalData(locale) {
     body: JSON.stringify({
       query: `
         fragment FileParts on UploadFileEntityResponse {
-          data {
+  data {
+    id
+    attributes {
+      alternativeText
+      width
+      height
+      mime
+      url
+      formats
+    }
+  }
+}
+
+query GetGlobal($locale: I18NLocaleCode!) {
+  global(locale: $locale) {
+    data {
+      id
+      attributes {
+        favicon {
+          ...FileParts
+        }
+        metadata {
+          metaTitle
+          metaDescription
+          shareImage {
+            ...FileParts
+          }
+        }
+        metaTitleSuffix
+        notificationBanner {
+          type
+          text
+        }
+        navbar {
+          logo {
+            ...FileParts
+          }
+          links {
             id
-            attributes {
-              alternativeText
-              width
-              height
-              mime
+            url
+            newTab
+            text
+          }
+          button {
+            id
+            url
+            newTab
+            text
+            type
+          }
+        }
+        footer {
+          logo {
+            ...FileParts
+          }
+          smallText
+          columns {
+            id
+            title
+            links {
+              id
               url
-              formats
+              newTab
+              text
             }
           }
         }
-       
-        query GetGlobal($locale: I18NLocaleCode!) {
-          global(locale: $locale) {
-            data {
-              id
-              attributes {
-                favicon {
-                  ...FileParts
-                }
-                metadata {
-                  metaTitle
-                  metaDescription
-                  shareImage {
-                    ...FileParts
-                  }
-
-                }
-                metaTitleSuffix
-                notificationBanner {
-                  type
-                  text
-                }
-                navbar {
-                  logo {
-                    ...FileParts
-                  }
-                  links {
-                    id
-                    url
-                    newTab
-                    text
-                  }
-                  button {
-                    id
-                    url
-                    newTab
-                    text
-                    type
-                  }
-                }
-                footer {
-                  logo {
-                    ...FileParts
-                  }
-                  smallText
-                  columns {
-                    id
-                    title
-                    links {
-                      id
-                      url
-                      newTab
-                      text
-                    }
+      }
+    }
+  }
+  execlogServices(locale: $locale) {
+    data {
+      id
+      attributes {
+        name
+        description
+        execlog_service_details {
+          data {
+            attributes {
+              name
+              description
+            }
+          }
+        }
+        execlog_customer_needs {
+          data {
+            attributes {
+              nome
+              description
+              execlog_ctmnddts {
+                data {
+                  attributes {
+                    nome
+                    description
                   }
                 }
               }
             }
           }
-          execlogServices(locale: $locale) {
-            data {
-              id
-              attributes {                            
-                name
-                description 
-                execlog_service_details{
-                  data{
-                    attributes{
-                      name
-                      description
-                    }
-                  }              
-                }
-                execlog_customer_needs{
-                  data{
-                    attributes{
-                      nome
-                      description
-                      execlog_ctmnddts{
-                        data{
-                          attributes{
-                            nome
-                            description
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-                execlog_planners{
-                   data{
-                    attributes{
-                      name
-                      description
-                      execlog_planner_steps{
-                        data{
-                          attributes{
-                            name
-                            description
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-                
-                }
-              }             
-            }
-          }
-        }        
+        }
+      }
+    }
+  }
+}
+    
       `,
       variables: {
         locale,
