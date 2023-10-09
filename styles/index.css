@@ -23,12 +23,12 @@ html {
   @apply text-blue-600 underline;
 }
 
-.rich-text-banner {
+/*.rich-text-banner {
   @apply whitespace-pre-line;
      a {
         @apply underline;
        }
-}
+}*/
 
 .title {
   @apply text-4xl leading-snug font-semibold;
