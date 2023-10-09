@@ -277,7 +277,7 @@ export async function getGlobalData(locale) {
     },
     body: JSON.stringify({
       query: `
-        fragment FileParts on UploadFileEntityResponse {
+fragment FileParts on UploadFileEntityResponse {
   data {
     id
     attributes {
@@ -348,39 +348,7 @@ query GetGlobal($locale: I18NLocaleCode!) {
       }
     }
   }
-  execlogServices(locale: $locale) {
-    data {
-      id
-      attributes {
-        name
-        description
-        execlog_service_details {
-          data {
-            attributes {
-              name
-              description
-            }
-          }
-        }
-        execlog_customer_needs {
-          data {
-            attributes {
-              nome
-              description
-              execlog_ctmnddts {
-                data {
-                  attributes {
-                    nome
-                    description
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  
 }
     
       `,
