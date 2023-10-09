@@ -5,6 +5,7 @@ import { useRouter } from "next/router"
 import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
+import 'tailwindcss/tailwind.css'
 import Script from 'next/script'
 //import { getCPQData } from "utils/api"
 
