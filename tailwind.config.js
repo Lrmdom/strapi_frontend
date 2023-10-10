@@ -1,11 +1,9 @@
 const { colors } = require(`tailwindcss/defaultTheme`)
-colors.indigo = "#6161ff"
 
 module.exports = {
-  //important: true,
   mode: "jit", // see https://tailwindcss.com/docs/just-in-time-mode
-  content: ["./components/**/*.js", "./pages/**/*.js","./utils/**/*.js"],
-  media: true, // or "media" or "class"
+  content: ["./components/**/*.js", "./pages/**/*.js"],
+  media: false, // or "media" or "class"
   theme: {
     extend: {
       colors: {
@@ -29,8 +27,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-/*  safelist: [
-    "bg-primary-600"
-  ],*/
   plugins: [require("@tailwindcss/typography")],
 }

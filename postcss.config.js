@@ -1,4 +1,4 @@
-/*module.exports = {
+module.exports = {
   plugins: [
     "postcss-import",
     "postcss-nesting",
@@ -8,10 +8,4 @@
     "postcss-custom-properties",
     "autoprefixer",
   ],
-}*/
-module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
 }
