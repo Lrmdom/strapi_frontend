@@ -5,55 +5,65 @@ import { useRouter } from "next/router"
 import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
+import { SessionProvider } from "next-auth/react"
 
 //import { getCPQData } from "utils/api"
 
-import "@/styles/index.css"
+import "/styles/index.css"
+
 const MyApp = ({ Component, pageProps }) => {
   // Extract the data we need
   const { global } = pageProps
-  if (global == null) {
+ /* if (global == null) {
     return <ErrorPage statusCode={404} />
-  }
+  }*/
   const { metadata, favicon, metaTitleSuffix } = global.attributes
+  if (global) {
+    return (
+      <>
+        {/* Favicon */}
+        <Head>
+          <link
+            rel="shortcut icon"
+            href={getStrapiMedia(favicon.data.attributes.url)}
+          />
+        </Head>
 
-  return (
-    <>
-      {/* Favicon */}
-      <Head>
-        <link
-          rel="shortcut icon"
-          href={getStrapiMedia(favicon.data.attributes.url)}
+        {/* Global site metadata */}
+        <DefaultSeo
+          titleTemplate={`%s | ${metaTitleSuffix}`}
+          title="Page"
+          description={metadata.metaDescription}
+          openGraph={{
+            //svg images dont work
+            images:
+              Object.values(
+                metadata.shareImage.data.attributes.formats,
+              ).map((image) => {
+                return {
+                  url: getStrapiMedia(image.url),
+                  width: image.width,
+                  height: image.height,
+                }
+              }),
+          }}
+          twitter={{
+            cardType: metadata.twitterCardType,
+            handle: metadata.twitterUsername,
+          }}
         />
-      </Head>
+        {/* Display the content */}
+        <Component {...pageProps} />
+      </>
+    )
+  } else {
+    return (
+      <>
+        <Component {...pageProps} />
+      </>
+    )
+  }
 
-      {/* Global site metadata */}
-      <DefaultSeo
-        titleTemplate={`%s | ${metaTitleSuffix}`}
-        title="Page"
-        description={metadata.metaDescription}
-        openGraph={{
-          //svg images dont work
-          images:
-            Object.values(
-              metadata.shareImage.data.attributes.formats,
-            ).map((image) => {
-              return {
-                url: getStrapiMedia(image.url),
-                width: image.width,
-                height: image.height,
-              }
-            }),
-        }}
-        twitter={{
-          cardType: metadata.twitterCardType,
-          handle: metadata.twitterUsername,
-        }}
-      />
-      {/* Display the content */}
-      <Component {...pageProps} />
-    </>
-  )
 }
 
 // getInitialProps disables automatic static optimization for pages that don't
