@@ -71,6 +71,7 @@ MyApp.getInitialProps = async (appContext) => {
       global: globalLocale,
       //cpqData: cpqData,
     },
+
   }
 }
 
