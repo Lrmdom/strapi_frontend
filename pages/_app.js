@@ -7,7 +7,7 @@ import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
 
 //import { getCPQData } from "utils/api"
-
+//just a commnet to redeploy ci/cd
 import "@/styles/index.css"
 const MyApp = ({ Component, pageProps }) => {
   // Extract the data we need
