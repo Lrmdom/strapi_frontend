@@ -1,24 +1,21 @@
 import App from "next/app"
 import Head from "next/head"
-import ErrorPage from "next/error"
-import { useRouter } from "next/router"
 import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
-import { SessionProvider } from "next-auth/react"
 
 //import { getCPQData } from "utils/api"
-
 import "/styles/index.css"
 
 const MyApp = ({ Component, pageProps }) => {
   // Extract the data we need
   const { global } = pageProps
- /* if (global == null) {
-    return <ErrorPage statusCode={404} />
-  }*/
-  const { metadata, favicon, metaTitleSuffix } = global.attributes
+  /* if (global == null) {
+     return <ErrorPage statusCode={404} />
+   }*/
   if (global) {
+    const { metadata, favicon, metaTitleSuffix } = global.attributes
+
     return (
       <>
         {/* Favicon */}
