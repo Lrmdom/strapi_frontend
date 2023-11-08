@@ -46,14 +46,7 @@ export const authOptions = {
       //issuer: process.env.ISSUER, optional
       //authorization: { params: { scope: "openid your_custom_scope" } },
     })
-    // Sign in with passwordless email link
-  ],callbacks: {
-    authorized({ request, auth }) {
-      const { pathname } = request.nextUrl
-      if (pathname === "/middleware-example") return !!auth
-      return true
-    },
-  },
-} satisfies NextAuthConfig
+  ]
+}
 
 export const { handlers, auth, signIn, signOut } = NextAuthConfig(authOptions)
