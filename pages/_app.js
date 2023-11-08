@@ -7,53 +7,62 @@ import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
 
 //import { getCPQData } from "utils/api"
-//just a commnet to redeploy ci/cd
+
 import "@/styles/index.css"
 const MyApp = ({ Component, pageProps }) => {
   // Extract the data we need
   const { global } = pageProps
-  if (global == null) {
-    return <ErrorPage statusCode={404} />
-  }
-  const { metadata, favicon, metaTitleSuffix } = global.attributes
+  /* if (global == null) {
+     return <ErrorPage statusCode={404} />
+   }*/
+  if (global) {
+    const { metadata, favicon, metaTitleSuffix } = global.attributes
 
-  return (
-    <>
-      {/* Favicon */}
-      <Head>
-        <link
-          rel="shortcut icon"
-          href={getStrapiMedia(favicon.data.attributes.url)}
+    return (
+      <>
+        {/* Favicon */}
+        <Head>
+          <link
+            rel="shortcut icon"
+            href={getStrapiMedia(favicon.data.attributes.url)}
+          />
+        </Head>
+
+        {/* Global site metadata */}
+        <DefaultSeo
+          titleTemplate={`%s | ${metaTitleSuffix}`}
+          title="Page"
+          description={metadata.metaDescription}
+          openGraph={{
+            //svg images dont work
+            images:
+              Object.values(
+                metadata.shareImage.data.attributes.formats,
+              ).map((image) => {
+                return {
+                  url: getStrapiMedia(image.url),
+                  width: image.width,
+                  height: image.height,
+                }
+              }),
+          }}
+          twitter={{
+            cardType: metadata.twitterCardType,
+            handle: metadata.twitterUsername,
+          }}
         />
-      </Head>
+        {/* Display the content */}
+        <Component {...pageProps} />
+      </>
+    )
+  } else {
+    return (
+      <>
+        <Component {...pageProps} />
+      </>
+    )
+  }
 
-      {/* Global site metadata */}
-      <DefaultSeo
-        titleTemplate={`%s | ${metaTitleSuffix}`}
-        title="Page"
-        description={metadata.metaDescription}
-        openGraph={{
-          //svg images dont work
-          images:
-            Object.values(
-              metadata.shareImage.data.attributes.formats,
-            ).map((image) => {
-              return {
-                url: getStrapiMedia(image.url),
-                width: image.width,
-                height: image.height,
-              }
-            }),
-        }}
-        twitter={{
-          cardType: metadata.twitterCardType,
-          handle: metadata.twitterUsername,
-        }}
-      />
-      {/* Display the content */}
-      <Component {...pageProps} />
-    </>
-  )
 }
 
 // getInitialProps disables automatic static optimization for pages that don't
@@ -71,8 +80,8 @@ MyApp.getInitialProps = async (appContext) => {
       global: globalLocale,
       //cpqData: cpqData,
     },
+
   }
 }
 
 export default MyApp
-//just a comment to trigger a deploy
