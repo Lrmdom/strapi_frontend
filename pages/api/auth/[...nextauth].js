@@ -1,4 +1,4 @@
-import NextAuth from "next-auth"
+import NextAuthConfig from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 import EmailProvider from "next-auth/providers/email"
@@ -47,7 +47,13 @@ export const authOptions = {
       //authorization: { params: { scope: "openid your_custom_scope" } },
     })
     // Sign in with passwordless email link
-  ],
-}
+  ],callbacks: {
+    authorized({ request, auth }) {
+      const { pathname } = request.nextUrl
+      if (pathname === "/middleware-example") return !!auth
+      return true
+    },
+  },
+} satisfies NextAuthConfig
 
-export default NextAuth(authOptions)
+export const { handlers, auth, signIn, signOut } = NextAuthConfig(authOptions)
