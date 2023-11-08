@@ -1,4 +1,4 @@
-import NextAuthConfig from "next-auth"
+import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 import EmailProvider from "next-auth/providers/email"
@@ -43,10 +43,11 @@ export const authOptions = {
     Auth0Provider({
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      //issuer: process.env.ISSUER, optional
-      //authorization: { params: { scope: "openid your_custom_scope" } },
+      issuer: process.env.ISSUER,
+      authorization: { params: { scope: "openid your_custom_scope" } },
     })
-  ]
+    // Sign in with passwordless email link
+  ],
 }
 
 export default NextAuth(authOptions)
