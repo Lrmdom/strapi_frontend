@@ -6,7 +6,7 @@ export default function SignIn({ providers }) {
     return (
       <>
         Signed in as {session.user.email} <br />
-        <button onClick={() => signOut({ callbackUrl: '/contacto' })}>Sign out</button>
+        <button onClick={() => signOut()}>Sign out</button>
       </>
     )
   }
