@@ -5,6 +5,7 @@ import { useRouter } from "next/router"
 import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
+import { Provider } from "next-auth/client"
 
 //import { getCPQData } from "utils/api"
 
@@ -52,13 +53,17 @@ const MyApp = ({ Component, pageProps }) => {
           }}
         />
         {/* Display the content */}
-        <Component {...pageProps} />
+        <Provider session={pageProps.session}>
+          <Component {...pageProps} />
+        </Provider>
       </>
     )
   } else {
     return (
       <>
-        <Component {...pageProps} />
+        <Provider session={pageProps.session}>
+          <Component {...pageProps} />
+        </Provider>
       </>
     )
   }
