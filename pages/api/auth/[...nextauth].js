@@ -8,17 +8,25 @@ import InstagramProvider from "next-auth/providers/instagram"
 import AppleProvider from "next-auth/providers/apple"
 export const authOptions = {
   pages: {
-    //signIn: '/api/auth/signin',
-    signOut: '/api/auth/signout',
+    signIn: '/api/auth/signin',
+    //signOut: '/api/auth/signout',
     //error: '/api/auth/error', // Error code passed in query string as ?error=
     //verifyRequest: '/api//auth/verify-request', // (used for check email message)
     //newUser: '/api//auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
   },
   callbacks: {
-    signin: async (profile, account, metadata) => { },
-    redirect: async (url, baseUrl) => { },
-    session: async (session, token) => { },
-    jwt: async (token, oAuthProfile) => { }
+    async signIn({ user, account, profile, email, credentials }) {
+      return true
+    },
+    async redirect({ url, baseUrl }) {
+      return baseUrl
+    },
+    async session({ session, user, token }) {
+      return session
+    },
+    async jwt({ token, user, account, profile, isNewUser }) {
+      return token
+    }
   },
 
   // Configure one or more authentication providers
