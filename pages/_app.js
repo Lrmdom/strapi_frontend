@@ -16,6 +16,7 @@ const MyApp = ({ Component, pageProps }) => {
   if (status === "authenticated") {
     return <p>Signed in as {session.user.email}</p>
   }
+  return <a href="/api/auth/signin">Sign in</a>
   const { global } = pageProps
   /* if (global == null) {
      return <ErrorPage statusCode={404} />
