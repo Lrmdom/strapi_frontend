@@ -14,7 +14,7 @@ export const authOptions = {
     //verifyRequest: '/api//auth/verify-request', // (used for check email message)
     //newUser: '/api//auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
   },
-  callbacks: {
+  /*callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       return true
     },
@@ -27,7 +27,7 @@ export const authOptions = {
     async jwt({ token, user, account, profile, isNewUser }) {
       return token
     }
-  },
+  },*/
 
   // Configure one or more authentication providers
   providers: [
