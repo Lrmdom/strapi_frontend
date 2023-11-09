@@ -7,16 +7,13 @@ import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
 
 //import { getCPQData } from "utils/api"
-import { getProviders, signIn, signOut, useSession } from "next-auth/react"
+import { getProviders, signIn, signOut, SessionProvider } from "next-auth/react"
 
 import "@/styles/index.css"
 const MyApp = ({ Component, pageProps }) => {
   // Extract the data we need
-  const { data: session, status } = useSession()
-  if (status === "authenticated") {
-    return <p>Signed in as {session.user.email}</p>
-  }
-  return <a href="/api/auth/signin">Sign in</a>
+
+
   const { global } = pageProps
   /* if (global == null) {
      return <ErrorPage statusCode={404} />
@@ -59,17 +56,18 @@ const MyApp = ({ Component, pageProps }) => {
         />
         {/* Display the content */}
 
-        <Provider session={pageProps.session}>
+          <SessionProvider session={pageProps.session}>
+
           <Component {...pageProps} />
-        </Provider>
+        </SessionProvider>
       </>
     )
   } else {
     return (
       <>
-        <Provider session={pageProps.session}>
+        <SessionProvider session={pageProps.session}>
           <Component {...pageProps} />
-        </Provider>
+        </SessionProvider>
       </>
     )
   }
