@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
-
+import { loginBtn } from "components/login-btn"
 //import { getCPQData } from "utils/api"
 import { getProviders, signIn, signOut, SessionProvider } from "next-auth/react"
 
@@ -55,7 +55,7 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps }, }) => {
           }}
         />
         {/* Display the content */}
-
+<loginBtn></loginBtn>
           <SessionProvider session={session}>
 
           <Component {...pageProps} />
@@ -65,6 +65,8 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps }, }) => {
   } else {
     return (
       <>
+        <loginBtn></loginBtn>
+
         <SessionProvider session={session}>
 
           <Component {...pageProps} />
