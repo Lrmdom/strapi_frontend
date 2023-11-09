@@ -6,6 +6,21 @@ module.exports = {
         destination: "/api/auth/signin",
         permanent: true,
       },
+      {
+        source: "/api/auth/callback/github",
+        destination: "/contacto",
+        permanent: true,
+      },
+      {
+        source: "/api/auth/callback/google",
+        destination: "/contacto",
+        permanent: true,
+      },
+      {
+        source: "/api/auth/callback/facebook",
+        destination: "/contacto",
+        permanent: true,
+      },
     ]
   },
   i18n: {
