@@ -6,7 +6,7 @@ export default function Component() {
     return (
       <>
         Signed in as {session.user.email} <br />
-        <button onClick={() => signOut({ callbackUrl: 'http://www.exceclog.com' })}>Sign out</button>
+        <button onClick={() => signOut({ callbackUrl: 'http://www.execlog.com' })}>Sign out</button>
       </>
     )
   }
