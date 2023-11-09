@@ -7,6 +7,12 @@ import FacebookProvider from "next-auth/providers/facebook"
 import InstagramProvider from "next-auth/providers/instagram"
 import AppleProvider from "next-auth/providers/apple"
 export const authOptions = {
+  callbacks: {
+    signin: async (profile, account, metadata) => { },
+    redirect: async (url, baseUrl) => { },
+    session: async (session, token) => { },
+    jwt: async (token, oAuthProfile) => { }
+  },
   /*pages: {
     signIn: '/api/auth/signin',
     signOut: '/api/auth/signout',
