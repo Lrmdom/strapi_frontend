@@ -55,7 +55,7 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps }, }) => {
           }}
         />
         {/* Display the content */}
-          <SessionProvider session={session}>
+          <SessionProvider session={pageProps.session}>
             <LoginBtn></LoginBtn>
 
           <Component {...pageProps} />
@@ -66,7 +66,7 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps }, }) => {
     return (
       <>
 
-        <SessionProvider session={session}>
+        <SessionProvider session={pageProps.session}>
           <LoginBtn></LoginBtn>
 
           <Component {...pageProps} />
