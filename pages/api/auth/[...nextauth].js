@@ -44,7 +44,7 @@ export const authOptions = {
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       issuer: process.env.ISSUER,
-      authorization: { params: { scope: "openid your_custom_scope" } },
+      //authorization: { params: { scope: "openid your_custom_scope" } },
     })
     // Sign in with passwordless email link
   ],
