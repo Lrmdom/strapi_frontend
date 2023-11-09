@@ -20,6 +20,8 @@ const Navbar = ({ navbar, pageContext }) => {
   return (
     <>
       {/* The actual navbar */}
+      <LoginBtn></LoginBtn>
+
       <nav className="border-gray-200 border-b-2 py-6 sm:py-2">
         <div className="container flex flex-row items-center justify-between">
           {/* Content aligned to the left */}
@@ -43,6 +45,7 @@ const Navbar = ({ navbar, pageContext }) => {
             </ul>
           </div>
           <div className="flex">
+
             {/* Locale Switch Mobile */}
             {pageContext.localizedPaths && (
               <div className="md:hidden">
@@ -69,7 +72,7 @@ const Navbar = ({ navbar, pageContext }) => {
             {/* Locale Switch Desktop */}
             {pageContext.localizedPaths && (
               <div className="hidden md:block">
-                <LoginBtn></LoginBtn>
+
                 <LocaleSwitch pageContext={pageContext} />
               </div>
             )}
