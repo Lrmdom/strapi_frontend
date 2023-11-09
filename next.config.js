@@ -21,6 +21,11 @@ module.exports = {
         destination: "/contacto",
         permanent: true,
       },
+      {
+        source: "/api/auth/callback/auth0",
+        destination: "/contacto",
+        permanent: true,
+      },
     ]
   },
   i18n: {
