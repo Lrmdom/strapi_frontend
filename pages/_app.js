@@ -56,7 +56,7 @@ const MyApp = ({ Component, pageProps }) => {
         />
         {/* Display the content */}
 
-          <SessionProvider session={pageProps.session}>
+          <SessionProvider session={session}>
 
           <Component {...pageProps} />
         </SessionProvider>
@@ -65,7 +65,7 @@ const MyApp = ({ Component, pageProps }) => {
   } else {
     return (
       <>
-        <SessionProvider session={pageProps.session}>
+        <SessionProvider session={session}>
           <Component {...pageProps} />
         </SessionProvider>
       </>
