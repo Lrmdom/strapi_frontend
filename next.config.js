@@ -2,7 +2,7 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: "/",
+        source: "/pt",
         destination: "/api/auth/signin",
         permanent: true,
       },
