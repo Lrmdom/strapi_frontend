@@ -11,6 +11,7 @@ import ButtonLink from "./button-link"
 import NextImage from "./image"
 import CustomLink from "./custom-link"
 import LocaleSwitch from "../locale-switch"
+import  LoginBtn  from "components/login-btn"
 
 const Navbar = ({ navbar, pageContext }) => {
   const router = useRouter()
@@ -68,6 +69,7 @@ const Navbar = ({ navbar, pageContext }) => {
             {/* Locale Switch Desktop */}
             {pageContext.localizedPaths && (
               <div className="hidden md:block">
+                <LoginBtn></LoginBtn>
                 <LocaleSwitch pageContext={pageContext} />
               </div>
             )}
