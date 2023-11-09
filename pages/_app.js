@@ -10,7 +10,7 @@ import { getGlobalData } from "utils/api"
 import { getProviders, signIn, signOut, SessionProvider } from "next-auth/react"
 
 import "@/styles/index.css"
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps: { session, ...pageProps }, }) => {
   // Extract the data we need
 
 
@@ -66,6 +66,7 @@ const MyApp = ({ Component, pageProps }) => {
     return (
       <>
         <SessionProvider session={session}>
+
           <Component {...pageProps} />
         </SessionProvider>
       </>
