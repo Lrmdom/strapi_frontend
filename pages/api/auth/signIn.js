@@ -6,12 +6,11 @@ export default function SignIn({ providers }) {
     return (
       <>
         Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
+        <button onClick={() => signOut({ callbackUrl: '/' })}>Sign out</button>
       </>
     )
   }
-
-  return (
+    return (
     <>
       {Object.values(providers).map((provider) => (
         <div key={provider.name}>
