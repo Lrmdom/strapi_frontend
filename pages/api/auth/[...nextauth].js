@@ -7,13 +7,13 @@ import FacebookProvider from "next-auth/providers/facebook"
 import InstagramProvider from "next-auth/providers/instagram"
 import AppleProvider from "next-auth/providers/apple"
 export const authOptions = {
-  pages: {
+  /*pages: {
     signIn: '/api/auth/signin',
     signOut: '/api/auth/signout',
     error: '/api/auth/error', // Error code passed in query string as ?error=
     verifyRequest: '/api//auth/verify-request', // (used for check email message)
     newUser: '/api//auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
-  },
+  },*/
   // Configure one or more authentication providers
   providers: [
     AppleProvider({
