@@ -6,7 +6,7 @@ import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
 //import { getCPQData } from "utils/api"
-import { getProviders, signIn, signOut, SessionProvider } from "next-auth/react"
+import { getProviders, signIn, signOut, SessionProvider, getSession, useSession } from "next-auth/react"
 
 import "@/styles/index.css"
 import LoginBtn from "@/components/login-btn"
@@ -91,6 +91,7 @@ MyApp.getInitialProps = async (appContext) => {
     pageProps: {
       global: globalLocale,
       //cpqData: cpqData,
+      session: getSession()
     },
 
   }
