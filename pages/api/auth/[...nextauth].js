@@ -15,15 +15,20 @@ export const authOptions = {
     //newUser: '/api//auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
   },
   callbacks: {
+    async session({ session, token, user }) {
+      // Send properties to the client, like an access_token and user id from a provider.
+      session.accessToken = token.accessToken
+      session.user.id = token.id
+
+      return session
+    },
     async signIn({ user, account, profile, email, credentials }) {
       return true
     },
     async redirect({ url, baseUrl }) {
       return baseUrl
     },
-    async session({ session, user, token }) {
-      return session
-    },
+
     async jwt({ token, user, account, profile, isNewUser }) {
       return token
     }
