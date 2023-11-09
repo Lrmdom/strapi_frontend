@@ -23,7 +23,7 @@ export const authOptions = {
       return session
     },
     async signIn({ user, account, profile, email, credentials }) {
-      return true
+      return user
     },
     async redirect({ url, baseUrl }) {
       return baseUrl
