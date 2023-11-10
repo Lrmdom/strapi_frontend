@@ -12,17 +12,17 @@ export const authOptions = {
 
     async signIn({ user, account, profile, email, credentials }) {
       console.log(user)
-      alert("leo1")
+      console.log("leo1")
       return user
     },
     async redirect({ url, baseUrl }) {
-      alert("leo2")
+      console.log("leo2")
       console.log(baseUrl)
       return baseUrl
     },
 
     async jwt({ token, account, user }) {
-      alert("leo3")
+      console.log("leo3")
       console.log(token)
       console.log(account)
       console.log(user)
@@ -38,7 +38,7 @@ export const authOptions = {
       return token
     },
     async session({ session, token, user }) {
-      alert("leo4")
+      console.log("leo4")
       console.log(token)
       console.log(user)
       console.log(session)
