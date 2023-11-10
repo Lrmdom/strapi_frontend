@@ -33,13 +33,14 @@ export const authOptions = {
         token.accessToken = user.email
         token.id = user.id
       }
+      console.log(user)
       return token
     },
     async session({ session, token, user }) {
 
       session.user = token
       //session.user is undefined
-      console.log(session.user)
+      console.log(session)
       return session
     },
 
