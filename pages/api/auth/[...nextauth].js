@@ -23,19 +23,26 @@ export const authOptions = {
     },
 
     async jwt({ token, account, user }) {
-
-      if (account) {
-
-        token.accessToken = user.email
-        token.id = user.id
-      }
+console.log(token)
+      console.log(account)
       console.log(user)
+      if (user || account) {
+        let new_token = {};
+        new_token.access_token = account.access_token;
+        new_token.user = { id: user.id, email: user.email, name: user.name };
+        console.log(new_token)
+        return new_token;
+      }
+
+      console.log(token)
       return token
     },
     async session({ session, token, user }) {
-
-      session.user = token
-      //session.user is undefined
+      console.log(token)
+      console.log(user)
+      console.log(session)
+      session.access_token = token.access_token;
+      session.user = token.user;
       console.log(session)
       return session
     },
