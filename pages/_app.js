@@ -9,12 +9,11 @@ import { getGlobalData } from "utils/api"
 import { getProviders, signIn, signOut, SessionProvider, getSession, useSession } from "next-auth/react"
 
 import "@/styles/index.css"
-import LoginBtn from "@/components/login-btn"
 const MyApp = ({ Component, pageProps: { session, ...pageProps }, }) => {
   // Extract the data we need
 
-
   const { global } = pageProps
+
   /* if (global == null) {
      return <ErrorPage statusCode={404} />
    }*/
@@ -55,7 +54,8 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps }, }) => {
           }}
         />
         {/* Display the content */}
-          <SessionProvider session={pageProps.session}>
+
+          <SessionProvider session={session}>
 
 
           <Component {...pageProps} />
@@ -65,8 +65,8 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps }, }) => {
   } else {
     return (
       <>
-
-        <SessionProvider session={pageProps.session}>
+)
+        <SessionProvider session={session}>
 
 
           <Component {...pageProps} />

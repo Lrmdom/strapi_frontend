@@ -11,21 +11,6 @@ export const authOptions = {
     strategy: "jwt",
   },
   providers: [
-    AppleProvider({
-      clientId: process.env.APPLE_ID,
-      clientSecret: process.env.APPLE_SECRET,
-      allowDangerousEmailAccountLinking: true,
-    }),
-    InstagramProvider({
-      clientId: process.env.FACEBOOK_ID,
-      clientSecret: process.env.FACEBOOK_SECRET,
-      allowDangerousEmailAccountLinking: true,
-    }),
-    FacebookProvider({
-      clientId: process.env.FACEBOOK_ID,
-      clientSecret: process.env.FACEBOOK_SECRET,
-      allowDangerousEmailAccountLinking: true,
-    }),
     GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
@@ -39,30 +24,9 @@ export const authOptions = {
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       issuer: process.env.ISSUER,
-    }),
+      //authorization: { params: { scope: "openid your_custom_scope" } },
+    })
+    // Sign in with passwordless email link
   ],
-  callbacks: {
-
-    async signIn({ user, account, profile, email, credentials }) {
-      console.log('fire signin Callback')
-
-    },
-    async redirect({ url, baseUrl }) {
-      console.log("leo2")
-
-    },
-
-    async jwt({ token, account, user }) {
-      console.log('fire jwt Callback');
-
-    },
-    async session({ session, token, user }) {
-      console.log('fire session Callback');
-
-    },
-
-  },
-
 }
-
 export default NextAuth(authOptions)

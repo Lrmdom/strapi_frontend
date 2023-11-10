@@ -12,13 +12,19 @@ import NextImage from "./image"
 import CustomLink from "./custom-link"
 import LocaleSwitch from "../locale-switch"
 import  LoginBtn  from "components/login-btn"
+import { useSession } from "next-auth/react"
+
+
 
 const Navbar = ({ navbar, pageContext }) => {
   const router = useRouter()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
-
+  const { data: session,status } = useSession()
+  console.log(session)
+  console.log(status)
   return (
     <>
+      <LoginBtn></LoginBtn>
       {/* The actual navbar */}
    <nav className="border-gray-200 border-b-2 py-6 sm:py-2">
         <div className="container flex flex-row items-center justify-between">
