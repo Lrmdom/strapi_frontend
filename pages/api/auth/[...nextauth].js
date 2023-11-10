@@ -7,6 +7,9 @@ import FacebookProvider from "next-auth/providers/facebook"
 import InstagramProvider from "next-auth/providers/instagram"
 import AppleProvider from "next-auth/providers/apple"
 export const authOptions = {
+  session:{
+    strategy:"jwt"
+  },
   pages: {
     //signIn: '/api/auth/signin',  //why this doenst work?
     //signOut: '/api/auth/signout',
@@ -15,13 +18,7 @@ export const authOptions = {
     //newUser: '/api//auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
   },
   callbacks: {
-    async session({ session, token, user }) {
-      // Send properties to the client, like an access_token and user id from a provider.
-      session.accessToken = token.accessToken
-      session.user.id = token.id
 
-      return session
-    },
     async signIn({ user, account, profile, email, credentials }) {
       return user
     },
@@ -29,9 +26,23 @@ export const authOptions = {
       return baseUrl
     },
 
-    async jwt({ token, user, account, profile, isNewUser }) {
+    async jwt({ token, account, user }) {
+
+      if (account) {
+
+        token.accessToken = user.email
+        token.id = user.id
+      }
       return token
-    }
+    },
+    async session({ session, token, user }) {
+
+      session.user = token
+      //session.user is undefined
+      console.log(session.user)
+      return session
+    },
+
   },
 
   // Configure one or more authentication providers
