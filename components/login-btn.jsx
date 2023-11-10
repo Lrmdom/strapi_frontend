@@ -2,6 +2,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function LoginBtn() {
   const { data: session,status } = useSession()
+  console.log(useSession())
   if (status === "authenticated")  {
     return (
       <>
