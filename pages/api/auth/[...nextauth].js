@@ -7,51 +7,6 @@ import InstagramProvider from "next-auth/providers/instagram"
 import AppleProvider from "next-auth/providers/apple"
 
 export const authOptions = {
-
-  callbacks: {
-
-    async signIn({ user, account, profile, email, credentials }) {
-      console.log('fire signin Callback')
-      console.log(user)
-      console.log("leo1")
-      return user
-    },
-    async redirect({ url, baseUrl }) {
-      console.log("leo2")
-      console.log(baseUrl)
-      return baseUrl
-    },
-
-    async jwt({ token, account, user }) {
-      console.log('fire jwt Callback');
-      console.log("leo3")
-      console.log(token)
-      console.log(account)
-      console.log(user)
-      if (user || account) {
-        let new_token = {}
-        new_token.access_token = account.access_token
-        new_token.user = { id: user.id, email: user.email, name: user.name }
-        console.log(new_token)
-        return new_token
-      }
-
-      console.log(token)
-      return token
-    },
-    async session({ session, token, user }) {
-      console.log('fire session Callback');
-      console.log("leo4")
-      console.log(token)
-      console.log(user)
-      console.log(session)
-      session.access_token = token.access_token
-      session.user = token.user
-      console.log(session)
-      return session
-    },
-
-  },
   session: {
     strategy: "jwt",
   },
@@ -86,6 +41,28 @@ export const authOptions = {
       issuer: process.env.ISSUER,
     }),
   ],
+  callbacks: {
+
+    async signIn({ user, account, profile, email, credentials }) {
+      console.log('fire signin Callback')
+
+    },
+    async redirect({ url, baseUrl }) {
+      console.log("leo2")
+
+    },
+
+    async jwt({ token, account, user }) {
+      console.log('fire jwt Callback');
+
+    },
+    async session({ session, token, user }) {
+      console.log('fire session Callback');
+
+    },
+
+  },
+
 }
 
 export default NextAuth(authOptions)
