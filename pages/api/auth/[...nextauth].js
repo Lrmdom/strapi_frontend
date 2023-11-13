@@ -31,7 +31,13 @@ export const authOptions = {
   ],
   callbacks: {
 
-
+    async signIn({ account, profile }) {
+      if (account.provider === "google") {
+        console.log("yeeepp")
+        return profile.email_verified && profile.email.endsWith("@example.com")
+      }
+      return true // Do different verification for other providers that don't have `email_verified`
+    },
     async session( session, token ) {
       console.log('test')
       session.accessToken = token.accessToken;
