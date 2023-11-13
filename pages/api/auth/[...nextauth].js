@@ -10,6 +10,7 @@ export const authOptions = {
   session: {
     strategy: "jwt",
   },
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
@@ -28,5 +29,18 @@ export const authOptions = {
     })
     // Sign in with passwordless email link
   ],
+  callbacks: {
+
+
+    async session( session, token ) {
+      console.log('test')
+      session.accessToken = token.accessToken;
+      session.idToken = token.idToken;
+      session.oktaId = token.oktaId;
+      return session;
+    }
+
+  },
+
 }
 export default NextAuth(authOptions)
