@@ -32,8 +32,9 @@ export const authOptions = {
   callbacks: {
 
     async signin({ account, profile }) {
+      console.log("yeeepp")
       if (account.provider === "google") {
-        console.log("yeeepp")
+
         return profile.email_verified && profile.email.endsWith("@example.com")
       }
       return true // Do different verification for other providers that don't have `email_verified`
