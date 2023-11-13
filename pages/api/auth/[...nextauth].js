@@ -31,7 +31,7 @@ export const authOptions = {
   ],
   callbacks: {
 
-    async signIn({ account, profile }) {
+    async signin({ account, profile }) {
       if (account.provider === "google") {
         console.log("yeeepp")
         return profile.email_verified && profile.email.endsWith("@example.com")
