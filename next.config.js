@@ -1,4 +1,5 @@
 module.exports = {
+/*
   async redirects() {
     return [
       {
@@ -28,9 +29,10 @@ module.exports = {
       },
     ]
   },
+*/
   i18n: {
     locales: ["pt", "en"],
-    defaultLocale: "pt",
+    defaultLocale: "en",
   },
   /* eslint: {
     // Warning: This allows production builds to successfully complete even if
