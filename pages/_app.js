@@ -55,22 +55,24 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps }, }) => {
         />
         {/* Display the content */}
 
-          <SessionProvider session={session}>
+         {/* <SessionProvider session={session}>
 
 
-          <Component {...pageProps} />
-        </SessionProvider>
+        </SessionProvider>*/}
+        <Component {...pageProps} />
+
       </>
     )
   } else {
     return (
       <>
 )
-        <SessionProvider session={session}>
+        <Component {...pageProps} />
+        {/*<SessionProvider session={session}>
 
 
           <Component {...pageProps} />
-        </SessionProvider>
+        </SessionProvider>*/}
       </>
     )
   }
@@ -81,7 +83,7 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps }, }) => {
 // have getStaticProps. So [[...slug]] pages still get SSG.
 // Hopefully we can replace this with getStaticProps once this issue is fixed:
 // https://github.com/vercel/next.js/discussions/10949
-MyApp.getInitialProps = async (appContext) => {
+/*MyApp.getInitialProps = async (appContext) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
   const globalLocale = await getGlobalData(appContext.router.locale)
@@ -95,6 +97,6 @@ MyApp.getInitialProps = async (appContext) => {
     },
 
   }
-}
+}*/
 
 export default MyApp
